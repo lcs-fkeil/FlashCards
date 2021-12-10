@@ -31,7 +31,10 @@ struct ContentView: View {
             // Check answer
             Button(action: {
                 // Reveal the answer
-                isAnswerShowing = true
+                withAnimation {
+                    isAnswerShowing = true
+                }
+                
             }, label: {
                 Text("Check")
             })
@@ -48,8 +51,9 @@ struct ContentView: View {
             // Show a new question
             Button(action: {
                 // Get another question
+                withAnimation{
                 currentCard = listOfCard.randomElement()!
-                
+                }
                 // Hide the answer
                 isAnswerShowing = false
             }, label: {
